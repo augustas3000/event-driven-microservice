@@ -11,4 +11,8 @@ import java.util.List;
 @ConfigurationProperties("twitter-to-kafka-service")
 public class TwitterToKafkaServiceProperties {
     private List<String> twitterKeywords;
+    private Boolean enableMockTweets;
+    private Integer mockMinTweetLength;
+    private Integer mockMaxTweetLength;
+    private Integer mockSleepMs;
 }
