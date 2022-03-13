@@ -1,20 +1,24 @@
 package com.gustyflows.twitter2kafka;
 
 import com.gustyflows.twitter2kafka.config.TwitterToKafkaServiceProperties;
+import com.gustyflows.twitter2kafka.runner.StreamRunner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
 @Slf4j
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {"com.gustyflows.twitter2kafka"}
+)
 public class TwitterToKafkaServiceApplication implements CommandLineRunner {
-    private final TwitterToKafkaServiceProperties twitterToKafkaServiceProperties;
+    private final StreamRunner streamRunner;
 
-    public TwitterToKafkaServiceApplication(TwitterToKafkaServiceProperties twitterToKafkaServiceProperties) {
-        this.twitterToKafkaServiceProperties = twitterToKafkaServiceProperties;
+    public TwitterToKafkaServiceApplication(StreamRunner streamRunner) {
+        this.streamRunner = streamRunner;
     }
 
     public static void main(String[] args) {
@@ -24,6 +28,6 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("App starts...");
-        log.info(Arrays.toString(twitterToKafkaServiceProperties.getTwitterKeywords().toArray(new String[]{})));
+        streamRunner.start();
     }
 }
