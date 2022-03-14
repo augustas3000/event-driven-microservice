@@ -1,7 +1,6 @@
 package com.gustyflows.twitter2kafka.runner.impl;
 
-import com.gustyflows.twitter2kafka.Exception.TwitterToKafkaServiceException;
-import com.gustyflows.twitter2kafka.config.TwitterToKafkaServiceProperties;
+import com.gustyflows.config.twitter2kafka.TwitterToKafkaServiceProperties;
 import com.gustyflows.twitter2kafka.listener.TwitterKafkaStatusListener;
 import com.gustyflows.twitter2kafka.runner.StreamRunner;
 import lombok.extern.slf4j.Slf4j;
@@ -77,7 +76,7 @@ public class MockKafkaStreamRunner implements StreamRunner {
         try {
             Thread.sleep(mockSleepMs);
         } catch (Exception e) {
-            throw new TwitterToKafkaServiceException("Error while sleeping the thread before instantiating new twitter Status object", e);
+            throw new com.gustyflows.twitter2kafka.Exception.TwitterToKafkaServiceException("Error while sleeping the thread before instantiating new twitter Status object", e);
         }
     }
 

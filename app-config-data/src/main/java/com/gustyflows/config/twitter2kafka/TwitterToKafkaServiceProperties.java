@@ -1,4 +1,4 @@
-package com.gustyflows.twitter2kafka.config;
+package com.gustyflows.config.twitter2kafka;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

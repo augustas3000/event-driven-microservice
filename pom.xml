@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>twitter-to-kafka-service</module>
+        <module>app-config-data</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -22,6 +23,7 @@
         <!--include build number when on full ci/cd usign jenkins, etc..-->
         <image>gustyflows/${project.artifactId}:${project.version}</image>
         <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
+        <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +48,12 @@
                 <groupId>org.twitter4j</groupId>
                 <artifactId>twitter4j-stream</artifactId>
                 <version>${twitter4j-stream.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.gustyflows</groupId>
+                <artifactId>app-config-data</artifactId>
+                <version>${app-config-data.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
