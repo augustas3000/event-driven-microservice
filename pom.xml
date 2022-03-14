@@ -25,6 +25,7 @@
         <image>gustyflows/${project.artifactId}:${project.version}</image>
         <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
         <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
+        <avro.version>1.10.0</avro.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +56,12 @@
                 <groupId>org.gustyflows</groupId>
                 <artifactId>app-config-data</artifactId>
                 <version>${app-config-data.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
