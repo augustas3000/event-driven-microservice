@@ -29,6 +29,7 @@
         <avro.version>1.10.0</avro.version>
         <spring-kafka.version>2.6.2</spring-kafka.version>
         <spring-retry.version>1.3.0</spring-retry.version>
+        <common-config.version>1.0-SNAPSHOT</common-config.version>
     </properties>
 
     <dependencyManagement>
@@ -77,6 +78,12 @@
                 <groupId>org.springframework.retry</groupId>
                 <artifactId>spring-retry</artifactId>
                 <version>${spring-retry.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.gustyflows</groupId>
+                <artifactId>common-config</artifactId>
+                <version>${common-config.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
