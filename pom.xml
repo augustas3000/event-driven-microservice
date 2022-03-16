@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.gustyflows</groupId>
+    <groupId>com.gustyflows</groupId>
     <artifactId>event-driven-microservices</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -30,7 +30,16 @@
         <spring-kafka.version>2.6.2</spring-kafka.version>
         <spring-retry.version>1.3.0</spring-retry.version>
         <common-config.version>1.0-SNAPSHOT</common-config.version>
+        <kafka-admin.version>1.0-SNAPSHOT</kafka-admin.version>
+        <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -57,7 +66,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.gustyflows</groupId>
+                <groupId>com.gustyflows</groupId>
                 <artifactId>app-config-data</artifactId>
                 <version>${app-config-data.version}</version>
             </dependency>
@@ -81,9 +90,39 @@
             </dependency>
 
             <dependency>
-                <groupId>org.gustyflows</groupId>
+                <groupId>com.gustyflows</groupId>
                 <artifactId>common-config</artifactId>
                 <version>${common-config.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>kafka-admin</artifactId>
+                <version>${kafka-admin.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-avro-serializer</artifactId>
+                <version>${kafka-avro-serializer.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -113,6 +152,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -175,6 +220,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
+<!--                    <annotationProcessorPaths>-->
+<!--                        <path>-->
+<!--                            <groupId>org.springframework.boot</groupId>-->
+<!--                            <artifactId>spring-boot-configuration-processor</artifactId>-->
+<!--                            <version>${spring-boot.version}</version>-->
+<!--                        </path>-->
+<!--                    </annotationProcessorPaths>-->
                     <release>11</release>
                 </configuration>
             </plugin>
