@@ -27,11 +27,12 @@
         <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
         <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
         <avro.version>1.10.0</avro.version>
-        <spring-kafka.version>2.6.2</spring-kafka.version>
+        <spring-kafka.version>2.8.3</spring-kafka.version>
         <spring-retry.version>1.3.0</spring-retry.version>
         <common-config.version>1.0-SNAPSHOT</common-config.version>
         <kafka-admin.version>1.0-SNAPSHOT</kafka-admin.version>
         <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
+        <kafka-producer.version>1.0-SNAPSHOT</kafka-producer.version>
     </properties>
 
     <repositories>
@@ -124,6 +125,18 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>kafka-admin</artifactId>
+                <version>${kafka-admin.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>kafka-producer</artifactId>
+                <version>${kafka-producer.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -152,7 +165,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-configuration-processor</artifactId>-->

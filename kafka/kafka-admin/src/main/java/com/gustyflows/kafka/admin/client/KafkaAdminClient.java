@@ -85,7 +85,7 @@ public class KafkaAdminClient {
         int multiplier = retryConfigProperties.getMultiplier().intValue();
         Long sleepTimeMs = retryConfigProperties.getSleepTimeMs();
 
-        while (getSchemaRegistryStatus().is2xxSuccessful()) {
+        while (!getSchemaRegistryStatus().is2xxSuccessful()) {
             checkMaxRetry(retryCount++, maxAttempts);
             sleep(sleepTimeMs);
             sleepTimeMs *= multiplier;

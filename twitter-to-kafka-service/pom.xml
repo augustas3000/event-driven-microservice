@@ -26,6 +26,16 @@
             <groupId>com.gustyflows</groupId>
             <artifactId>app-config-data</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.gustyflows</groupId>
+            <artifactId>kafka-admin</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gustyflows</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
