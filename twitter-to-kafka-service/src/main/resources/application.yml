@@ -46,11 +46,7 @@ logging:
 
 twitter4j:
   oauth:
-    consumer-key: ENC(J1UgDEh93TVrULyj/zo325ze4j1krvPe4G02e1PiKTuf5MXAtnKYG/JxBbpARI9MI1YBhebe0EDvDtkEUZG0EQ==)
-    consumer-secret: ENC(x3jomUP5R06a/IFT3iexNn9YHDoyNdrvDqExZF1DcicYCcO6R8uPhWc+wl6mrVxHjNXBnn0L+6Qu3nhCf4voOAqNEcb0ZZ015DiUVtDBW78xQNHvZKuFaMEK/771dwmQ)
-    access-token: ENC(f3uw8oDc10cNPyev2wdqJZXaV0i/E+6deAoJgqiqXd9KYanphgpvYvt2xYWj5qfDH7calVoTsSwP+FUYroKoN0j9RYewSEpZySwWM+59c11JHCsUj12TM4rNtWxuX4VW)
-    access-token-secret: ENC(qnWQQQ/2HLVEIqhQeSF4rTGkwZxNnh4lMMSGnlnWzA/COF7FqX1amZx7yz8Wo72gRpfp71HTKbM7siFKtwqpChjSA7yr3w/08CoqsZFjz34=)
-#    consumer-key: ENC(cAmS8hfZrantAHm7pDg3sQRiNjjio2UK+Esd/89Zu3ODi6qqiPjP/A==)
-#    consumer-secret: ENC(4xbezfZxAO4dyV2RiQWItU8viKcRwIghM9lpE9k/4oKqhNyeLdtlLAmYj6QUe9v7K9q7em0Ugqz1+po8jHyrFA==)
-#    access-token: ENC(wGRAAB14MZUa6hlzd+yVL//AOlZpoHdAc6ZvUVDPuZeErLKTKJFVtQE0r2k5V2/Tyqof0xzIDNvADSCajJ+Nfg==)
-#    access-token-secret: ENC(ftZSSch/D2MoYTbUoIp409xFmYZ5C02NKtiGqzYpt0ha6BwyGcBu9+SSSj+dK9VAb3J+Kk7Shq0=)
+    consumer-key: ENC(Kh89YR/RBO9gEQsrnxt9qJG6oowauPZ4gJrRcYLEcNG4EtM/nPUw8lmrJ7OggmoZ2NkVuN40vVY/Noa2Go/v7Q==)
+    consumer-secret: ENC(xMUxqdnLkrJwAWPxWyv42GTg5kLWGqbYoSAaKy/Zv5INp58d1C19YQPgeQn+SOhLVBYyCWPPGjTVR1CnUfs5yo4hcCRWUTWTtyPk6X67aEBhhVdMVKmg+KSSOefRN4sg)
+    access-token: ENC(kf8jEacAQM03nhNRYSBxdrI4mMj2C9gPJBRh8GJkLP8ODo50XLNZcZR9VOXyNfZUlI2GfNsXfyJp+C1T6A3Wjkl8w9ZB0BuahKBk/3ucnVMgVyb092GLS3v1wNpTBY4M)
+    access-token-secret: ENC(nFwJwPzt6VM70PLfPKXzhMp3e5Owu81pfA07ot0l0eI7y2WjQhIy26/SRzcNCXtB9dIt7NDnmQ1eGOr0ojvzvxgJO2Y0cUXJ+Wb7JvMZIsQ=)
