@@ -10,7 +10,7 @@ twitter-to-kafka-service:
     - Spring
     - Kafka
     - Elasticsearch
-  enable-mock-tweets: true
+  enable-mock-tweets: false
   mock-min-tweet-length: 5
   mock-max-tweet-length: 15
   mock-sleep-ms: 10000
@@ -40,3 +40,17 @@ kafka-producer-config:
   linger-ms: 5
   request-timeout-ms: 60000
   retry-count: 5
+logging:
+  level:
+    twitter4j: DEBUG
+
+twitter4j:
+  oauth:
+    consumer-key: ENC(J1UgDEh93TVrULyj/zo325ze4j1krvPe4G02e1PiKTuf5MXAtnKYG/JxBbpARI9MI1YBhebe0EDvDtkEUZG0EQ==)
+    consumer-secret: ENC(x3jomUP5R06a/IFT3iexNn9YHDoyNdrvDqExZF1DcicYCcO6R8uPhWc+wl6mrVxHjNXBnn0L+6Qu3nhCf4voOAqNEcb0ZZ015DiUVtDBW78xQNHvZKuFaMEK/771dwmQ)
+    access-token: ENC(f3uw8oDc10cNPyev2wdqJZXaV0i/E+6deAoJgqiqXd9KYanphgpvYvt2xYWj5qfDH7calVoTsSwP+FUYroKoN0j9RYewSEpZySwWM+59c11JHCsUj12TM4rNtWxuX4VW)
+    access-token-secret: ENC(qnWQQQ/2HLVEIqhQeSF4rTGkwZxNnh4lMMSGnlnWzA/COF7FqX1amZx7yz8Wo72gRpfp71HTKbM7siFKtwqpChjSA7yr3w/08CoqsZFjz34=)
+#    consumer-key: ENC(cAmS8hfZrantAHm7pDg3sQRiNjjio2UK+Esd/89Zu3ODi6qqiPjP/A==)
+#    consumer-secret: ENC(4xbezfZxAO4dyV2RiQWItU8viKcRwIghM9lpE9k/4oKqhNyeLdtlLAmYj6QUe9v7K9q7em0Ugqz1+po8jHyrFA==)
+#    access-token: ENC(wGRAAB14MZUa6hlzd+yVL//AOlZpoHdAc6ZvUVDPuZeErLKTKJFVtQE0r2k5V2/Tyqof0xzIDNvADSCajJ+Nfg==)
+#    access-token-secret: ENC(ftZSSch/D2MoYTbUoIp409xFmYZ5C02NKtiGqzYpt0ha6BwyGcBu9+SSSj+dK9VAb3J+Kk7Shq0=)
