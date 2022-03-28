@@ -4,10 +4,12 @@ import com.gustyflows.twitter2kafka.init.StreamInitializer;
 import com.gustyflows.twitter2kafka.runner.StreamRunner;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.core.env.Environment;
 
 @Slf4j
 @EnableConfigurationProperties
@@ -20,6 +22,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     private final StreamRunner streamRunner;
     private final StreamInitializer streamInitializer;
+
+    @Autowired
+    private Environment env;
 
     public TwitterToKafkaServiceApplication(StreamRunner streamRunner, StreamInitializer streamInitializer) {
         this.streamRunner = streamRunner;

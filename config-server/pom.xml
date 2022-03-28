@@ -12,13 +12,6 @@
     <artifactId>config-server</artifactId>
 
     <dependencies>
-        <!--        no dee full spring boot starter for config server application, so only autoconfigure
-                    dependency should suffice-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.gustyflows</groupId>
             <artifactId>app-config-data</artifactId>

@@ -8,12 +8,6 @@ spring:
     config:
       server:
         git:
-          uri: file://C:\viskas\event-driven-microservices\config-server-repository
+          uri: file://C:/viskas/event-driven-microservices/config-server-repository
           clone-on-start: true
       fail-fast: true
-
-logging:
-  level:
-    ROOT: INFO
-    org.spring.framework.cloud.config: DEBUG
-
