@@ -46,7 +46,6 @@
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -69,11 +68,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>jasypt-maven-plugin</artifactId>
-                <version>3.0.3</version>
-            </plugin>
         </plugins>
     </build>
 
