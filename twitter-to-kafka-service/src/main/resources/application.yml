@@ -3,6 +3,10 @@ spring:
     name: twitter-to-kafka-service
   config:
     import: "optional:configserver:http://localhost:8888"
+  cloud:
+    config:
+      username: ENC(z4AqSjlRRK91Lqm1Ui9h7pGUyY2SBe89+lSVmEqIFv7GcFkexLk8l8dvEZb5lSWZk2KBIrnkDtzWQFDbiDcSXQ==)
+      password: ENC(HkKz5SeBgOnFia4uOXuf5oOlnVTLnaaZlg1gww/5DqGo+eFUmrLpSiRqFyp9Zyew/OD4GcRX3hvml/URhf1Cyg==)
 #  cloud:
 #      name: twitter-to-kafka-service,config-client
 #      uri: http://localhost:8888
