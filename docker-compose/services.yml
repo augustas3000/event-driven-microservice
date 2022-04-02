@@ -26,7 +26,8 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "JASYPT_ENCRYPTOR_PASSWORD=${JASYPT_ENCRYPTOR_PASSWORD}"
       - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=false"
-      - "SPRING_CONFIG_IMPORT=http://config-server:8888"
+      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "SPRING_CLOUD_CONFIG_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}"
     networks:
       - ${GLOBAL_NETWORK:-services}
   config-server:
@@ -38,5 +39,6 @@ services:
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
       - "JASYPT_ENCRYPTOR_PASSWORD=${JASYPT_ENCRYPTOR_PASSWORD}"
+      - "SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}"
     networks:
       - ${GLOBAL_NETWORK:-services}
