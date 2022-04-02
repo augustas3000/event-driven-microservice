@@ -25,7 +25,7 @@ services:
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "JASYPT_ENCRYPTOR_PASSWORD=${JASYPT_ENCRYPTOR_PASSWORD}"
-      - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=false"
+      - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=true"
       - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
       - "SPRING_CLOUD_CONFIG_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}"
     networks:
