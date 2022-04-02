@@ -15,5 +15,4 @@ spring:
       fail-fast: true
   security:
     user:
-      name: ENC(xMqeA7D0T9/+7iq4V1LfbMDdqHStlvtGxRQwGFg0EZCLXwe030p7WZKOebdrI7UPYNuUujAIHvuucx/3w5aSTw==)
-      password: ENC(aBOpgMv+RmdUkT54KpAKkNGvF9T/xb/DEdNb1pJtcEUO+UCbY31WMmiLDW79XWVcTbAzKg+D+WfkISCHEvcZmw==)
+      name: nunudv
