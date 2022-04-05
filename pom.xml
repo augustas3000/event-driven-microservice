@@ -36,6 +36,7 @@
         <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
         <kafka-producer.version>1.0-SNAPSHOT</kafka-producer.version>
         <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
+        <kafka-consumer.version>1.0-SNAPSHOT</kafka-consumer.version>
     </properties>
 
     <repositories>
@@ -47,6 +48,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>kafka-consumer</artifactId>
+                <version>${kafka-consumer.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
@@ -133,12 +140,6 @@
                         <artifactId>swagger-core</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.gustyflows</groupId>
-                <artifactId>kafka-admin</artifactId>
-                <version>${kafka-admin.version}</version>
             </dependency>
 
             <dependency>
