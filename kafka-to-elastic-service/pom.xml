@@ -39,9 +39,13 @@
 
         <dependency>
             <groupId>com.gustyflows</groupId>
-            <artifactId>kafka-consumer</artifactId>
+            <artifactId>kafka-model</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.gustyflows</groupId>
+            <artifactId>kafka-admin</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>

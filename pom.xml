@@ -37,6 +37,7 @@
         <kafka-producer.version>1.0-SNAPSHOT</kafka-producer.version>
         <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
         <kafka-consumer.version>1.0-SNAPSHOT</kafka-consumer.version>
+        <kafka-model.version>1.0-SNAPSHOT</kafka-model.version>
     </properties>
 
     <repositories>
@@ -146,6 +147,12 @@
                 <groupId>com.gustyflows</groupId>
                 <artifactId>kafka-producer</artifactId>
                 <version>${kafka-producer.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>kafka-model</artifactId>
+                <version>${kafka-model.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
