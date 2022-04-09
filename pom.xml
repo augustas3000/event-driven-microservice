@@ -39,6 +39,8 @@
         <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
         <kafka-consumer.version>1.0-SNAPSHOT</kafka-consumer.version>
         <kafka-model.version>1.0-SNAPSHOT</kafka-model.version>
+        <elasticsearch.version>8.1.2</elasticsearch.version>
+        <elasticsearch-client.version>7.17.2</elasticsearch-client.version>
     </properties>
 
     <repositories>
@@ -50,6 +52,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.gustyflows</groupId>
                 <artifactId>kafka-consumer</artifactId>
