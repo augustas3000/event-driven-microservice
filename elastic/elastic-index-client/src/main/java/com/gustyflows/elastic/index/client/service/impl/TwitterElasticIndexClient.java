@@ -5,6 +5,7 @@ import com.gustyflows.elastic.index.client.service.ElasticIndexClient;
 import com.gustyflows.elastic.index.client.util.ElasticIndexUtil;
 import com.gustyflows.elastic.model.index.impl.TwitterIndexModel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexedObjectInformation;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@ConditionalOnProperty(name = "elastic-config.is-repository", havingValue = "false")
 public class TwitterElasticIndexClient implements ElasticIndexClient<TwitterIndexModel> {
 
     private final ElasticConfigProperties elasticConfigProperties;
@@ -37,6 +39,8 @@ public class TwitterElasticIndexClient implements ElasticIndexClient<TwitterInde
     public List<String> save(List<TwitterIndexModel> documents) {
         List<IndexQuery> indexQueries = elasticIndexUtil.getIndexQueries(documents);
 
+        //Elasticsearchoperations class give more flexibility but results in more complex code
+        //ElasticSearch template provides and alternative, simplistic but less flexible
         List<IndexedObjectInformation> indexedObjectInformations = elasticsearchOperations.bulkIndex(
                 indexQueries,
                 IndexCoordinates.of(elasticConfigProperties.getIndexName())
