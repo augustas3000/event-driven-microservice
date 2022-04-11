@@ -11,6 +11,22 @@
 
     <artifactId>elastic-index-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.gustyflows</groupId>
+            <artifactId>app-config-data</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gustyflows</groupId>
+            <artifactId>elastic-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

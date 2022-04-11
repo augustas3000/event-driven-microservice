@@ -41,6 +41,7 @@
         <kafka-model.version>1.0-SNAPSHOT</kafka-model.version>
         <elasticsearch.version>8.1.2</elasticsearch.version>
         <elasticsearch-client.version>7.17.2</elasticsearch-client.version>
+        <elastic-model.version>1.0-SNAPSHOT</elastic-model.version>
     </properties>
 
     <repositories>
@@ -52,6 +53,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>elastic-model</artifactId>
+                <version>${elastic-model.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
