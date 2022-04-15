@@ -5,7 +5,6 @@ import com.gustyflows.elastic.index.client.service.ElasticIndexClient;
 import com.gustyflows.elastic.model.index.impl.TwitterIndexModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
