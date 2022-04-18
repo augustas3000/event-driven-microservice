@@ -17,6 +17,11 @@
     <dependencies>
         <dependency>
             <groupId>com.gustyflows</groupId>
+            <artifactId>common-util</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gustyflows</groupId>
             <artifactId>app-config-data</artifactId>
         </dependency>
 
