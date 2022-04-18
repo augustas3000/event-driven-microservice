@@ -39,8 +39,6 @@ public class TwitterElasticIndexClient implements ElasticIndexClient<TwitterInde
     public List<String> save(List<TwitterIndexModel> documents) {
         List<IndexQuery> indexQueries = elasticIndexUtil.getIndexQueries(documents);
 
-        //Elasticsearchoperations class give more flexibility but results in more complex code
-        //ElasticSearch template provides and alternative, simplistic but less flexible
         List<IndexedObjectInformation> indexedObjectInformations = elasticsearchOperations.bulkIndex(
                 indexQueries,
                 IndexCoordinates.of(elasticConfigProperties.getIndexName())

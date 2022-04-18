@@ -22,8 +22,9 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.22</lombok.version>
-        <spring-boot.version>2.6.4</spring-boot.version>
-        <spring.cloud-version>2021.0.1</spring.cloud-version>
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring.cloud-version>3.0.2</spring.cloud-version>
+        <spring-cloud-dependencies.version>2020.0.2</spring-cloud-dependencies.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <!--include build number when on full ci/cd usign jenkins, etc..-->
         <image>gustyflows/${project.artifactId}:${project.version}</image>
@@ -31,7 +32,7 @@
         <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
         <avro.version>1.10.0</avro.version>
         <spring-kafka.version>2.8.3</spring-kafka.version>
-        <spring-retry.version>1.3.0</spring-retry.version>
+        <spring-retry.version>1.3.1</spring-retry.version>
         <common-config.version>1.0-SNAPSHOT</common-config.version>
         <kafka-admin.version>1.0-SNAPSHOT</kafka-admin.version>
         <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
@@ -39,8 +40,7 @@
         <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
         <kafka-consumer.version>1.0-SNAPSHOT</kafka-consumer.version>
         <kafka-model.version>1.0-SNAPSHOT</kafka-model.version>
-        <elasticsearch.version>8.1.2</elasticsearch.version>
-        <elasticsearch-client.version>7.17.2</elasticsearch-client.version>
+        <elastic.version>7.9.1</elastic.version>
         <elastic-model.version>1.0-SNAPSHOT</elastic-model.version>
         <elastic-config.version>1.0-SNAPSHOT</elastic-config.version>
         <elastic-index-client.version>1.0-SNAPSHOT</elastic-index-client.version>
@@ -76,13 +76,13 @@
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
-                <version>${elasticsearch-client.version}</version>
+                <version>${elastic.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
-                <version>${elasticsearch.version}</version>
+                <version>${elastic.version}</version>
             </dependency>
 
             <dependency>
@@ -108,7 +108,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud-version}</version>
+                <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

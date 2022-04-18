@@ -16,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.Objects;
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "com.gustyflows.elastic.index.client.repository")
+@EnableElasticsearchRepositories(basePackages = "com.gustyflows.elastic")
 public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
     private final ElasticConfigProperties elasticConfigProperties;
@@ -34,15 +34,18 @@ public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
                         Objects.requireNonNull(serverUri.getHost()),
                         serverUri.getPort(),
                         serverUri.getScheme()
-                )).setRequestConfigCallback(reqConfigBuilder ->
-                        reqConfigBuilder
-                                .setConnectTimeout(elasticConfigProperties.getConnectTimeoutMs())
-                                .setSocketTimeout(elasticConfigProperties.getSocketTimeoutMs()))
+                )).setRequestConfigCallback(
+                        requestConfigBuilder ->
+                                requestConfigBuilder
+                                        .setConnectTimeout(elasticConfigProperties.getConnectTimeoutMs())
+                                        .setSocketTimeout(elasticConfigProperties.getSocketTimeoutMs())
+
+                )
         );
     }
 
     @Bean
-    public ElasticsearchOperations elasticsearchTemplate() {
+    public ElasticsearchOperations elasticsearchOperations() {
         return new ElasticsearchRestTemplate(elasticsearchClient());
     }
 }

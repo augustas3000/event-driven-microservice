@@ -12,6 +12,7 @@ spring:
           username: ENC(dSqOz4R8brb7LTAZcJ+PT339iswy2wPqPiBMcvEoEHKwYM8Sea9sraNZUdfb7fxJ)
           password: ENC(WXOS3tvqrefhCghB8vjS+AWcFPdBE0yyGlwudlkNvVt339m7sCM2I8EKogsc6nYkgwgTxYDfdenx3oLSZDPZBwaVG3PcH0xu2mygefzLJp0=)
           clone-on-start: true
+          default-label: main
       fail-fast: true
   security:
     user:

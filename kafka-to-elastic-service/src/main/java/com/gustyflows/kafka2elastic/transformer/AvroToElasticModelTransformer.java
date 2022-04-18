@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,8 @@ public class AvroToElasticModelTransformer {
                         .builder()
                         .userId(avroModel.getUserId())
                         .id(String.valueOf(avroModel.getId()))
-                        .createdAt(LocalDateTime.ofInstant(Instant.ofEpochMilli(avroModel.getCreatedAt()), ZoneId.systemDefault()))
+                        .text(avroModel.getText())
+                        .createdAt(ZonedDateTime.ofInstant(Instant.ofEpochMilli(avroModel.getCreatedAt()), ZoneId.systemDefault()))
                         .build())
                 .collect(Collectors.toList());
     }
