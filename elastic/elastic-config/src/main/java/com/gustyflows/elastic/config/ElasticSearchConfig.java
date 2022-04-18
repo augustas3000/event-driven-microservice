@@ -1,6 +1,6 @@
 package com.gustyflows.elastic.config;
 
-import com.gustyflows.config.twitter2kafka.ElasticConfigProperties;
+import com.gustyflows.config.ElasticConfigProperties;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;

@@ -1,7 +1,7 @@
 package com.gustyflows.twitter2kafka.runner.impl;
 
-import com.gustyflows.config.twitter2kafka.Twitter4jProperties;
-import com.gustyflows.config.twitter2kafka.TwitterToKafkaServiceProperties;
+import com.gustyflows.config.Twitter4jProperties;
+import com.gustyflows.config.TwitterToKafkaServiceProperties;
 import com.gustyflows.twitter2kafka.listener.TwitterKafkaStatusListener;
 import com.gustyflows.twitter2kafka.runner.StreamRunner;
 import lombok.extern.slf4j.Slf4j;

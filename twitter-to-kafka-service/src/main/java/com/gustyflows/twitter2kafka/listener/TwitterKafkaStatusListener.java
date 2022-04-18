@@ -1,6 +1,6 @@
 package com.gustyflows.twitter2kafka.listener;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
+import com.gustyflows.config.KafkaConfigProperties;
 import com.gustyflows.kafka.avro.model.TwitterAvroModel;
 import com.gustyflows.kafka.producer.service.KafkaProducer;
 import com.gustyflows.twitter2kafka.transformer.TwitterStatusToAvroTransformer;

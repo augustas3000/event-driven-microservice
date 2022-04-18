@@ -1,7 +1,7 @@
 package com.gustyflows.kafka.admin.client;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
-import com.gustyflows.config.twitter2kafka.RetryConfigProperties;
+import com.gustyflows.config.KafkaConfigProperties;
+import com.gustyflows.config.RetryConfigProperties;
 import com.gustyflows.kafka.admin.exception.KafkaClientException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;

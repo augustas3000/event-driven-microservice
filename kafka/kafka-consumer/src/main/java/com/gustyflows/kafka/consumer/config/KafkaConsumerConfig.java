@@ -1,7 +1,7 @@
 package com.gustyflows.kafka.consumer.config;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
-import com.gustyflows.config.twitter2kafka.KafkaConsumerProperties;
+import com.gustyflows.config.KafkaConfigProperties;
+import com.gustyflows.config.KafkaConsumerProperties;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,7 @@
 package com.gustyflows.kafka2elastic.consumer.impl;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
-import com.gustyflows.config.twitter2kafka.KafkaConsumerProperties;
+import com.gustyflows.config.KafkaConfigProperties;
+import com.gustyflows.config.KafkaConsumerProperties;
 import com.gustyflows.elastic.index.client.service.ElasticIndexClient;
 import com.gustyflows.elastic.model.index.impl.TwitterIndexModel;
 import com.gustyflows.kafka.admin.client.KafkaAdminClient;

@@ -1,6 +1,6 @@
 package com.gustyflows.elastic.index.client.service.impl;
 
-import com.gustyflows.config.twitter2kafka.ElasticConfigProperties;
+import com.gustyflows.config.ElasticConfigProperties;
 import com.gustyflows.elastic.index.client.service.ElasticIndexClient;
 import com.gustyflows.elastic.index.client.util.ElasticIndexUtil;
 import com.gustyflows.elastic.model.index.impl.TwitterIndexModel;

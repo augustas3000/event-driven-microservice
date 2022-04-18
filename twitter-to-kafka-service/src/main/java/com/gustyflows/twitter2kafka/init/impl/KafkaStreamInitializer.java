@@ -1,6 +1,6 @@
 package com.gustyflows.twitter2kafka.init.impl;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
+import com.gustyflows.config.KafkaConfigProperties;
 import com.gustyflows.kafka.admin.client.KafkaAdminClient;
 import com.gustyflows.twitter2kafka.init.StreamInitializer;
 import lombok.extern.slf4j.Slf4j;

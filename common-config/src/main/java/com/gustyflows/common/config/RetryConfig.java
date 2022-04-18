@@ -1,6 +1,6 @@
 package com.gustyflows.common.config;
 
-import com.gustyflows.config.twitter2kafka.RetryConfigProperties;
+import com.gustyflows.config.RetryConfigProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.retry.backoff.ExponentialBackOffPolicy;

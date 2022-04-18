@@ -1,6 +1,6 @@
 package com.gustyflows.kafka.admin.config;
 
-import com.gustyflows.config.twitter2kafka.KafkaConfigProperties;
+import com.gustyflows.config.KafkaConfigProperties;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.springframework.context.annotation.Bean;
