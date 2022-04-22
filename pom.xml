@@ -16,6 +16,7 @@
         <module>kafka-to-elastic-service</module>
         <module>elastic</module>
         <module>common-util</module>
+        <module>elastic-query-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -46,6 +47,7 @@
         <elastic-config.version>1.0-SNAPSHOT</elastic-config.version>
         <elastic-index-client.version>1.0-SNAPSHOT</elastic-index-client.version>
         <common-util.version>1.0-SNAPSHOT</common-util.version>
+        <elastic-query-client.version>1.0-SNAPSHOT</elastic-query-client.version>
     </properties>
 
     <repositories>
@@ -57,6 +59,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.gustyflows</groupId>
+                <artifactId>elastic-query-client</artifactId>
+                <version>${elastic-query-client.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.gustyflows</groupId>
                 <artifactId>common-util</artifactId>
