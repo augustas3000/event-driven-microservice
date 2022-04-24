@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +35,13 @@ public class ElasticDocumentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ElasticQueryServiceResponse> getDocumentById(@PathVariable String id) {
+    public ResponseEntity<ElasticQueryServiceResponse> getDocumentById(@PathVariable @NotEmpty String id) {
         ElasticQueryServiceResponse response = elasticQueryService.getDocumentById(id);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/get-document-by-text")
-    public ResponseEntity<List<ElasticQueryServiceResponse>> getDocumentByText(@RequestBody ElasticQueryServiceRequest request) {
+    public ResponseEntity<List<ElasticQueryServiceResponse>> getDocumentByText(@RequestBody @Valid ElasticQueryServiceRequest request) {
         List<ElasticQueryServiceResponse> responses = elasticQueryService.getDocumentByText(request.getText());
         return ResponseEntity.ok(responses);
     }
