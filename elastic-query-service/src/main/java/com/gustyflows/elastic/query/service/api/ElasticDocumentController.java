@@ -1,5 +1,6 @@
 package com.gustyflows.elastic.query.service.api;
 
+import com.gustyflows.elastic.query.service.business.ElasticQueryService;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceRequest;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -19,30 +20,27 @@ import java.util.List;
 @RequestMapping(value = "/documents")
 public class ElasticDocumentController {
 
+    private final ElasticQueryService elasticQueryService;
+
+    public ElasticDocumentController(ElasticQueryService elasticQueryService) {
+        this.elasticQueryService = elasticQueryService;
+    }
+
     @GetMapping("/")
     public ResponseEntity<List<ElasticQueryServiceResponse>> getAllDocuments() {
-        List<ElasticQueryServiceResponse> responses = new ArrayList<>();
-        log.info("Elasticsearch returned {} of documents", responses.size());
+        List<ElasticQueryServiceResponse> responses = elasticQueryService.getAllDocuments();
         return ResponseEntity.ok(responses);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ElasticQueryServiceResponse> getDocumentById(@PathVariable String id) {
-        ElasticQueryServiceResponse response = ElasticQueryServiceResponse.builder()
-                .id(id)
-                .build();
-        log.info("Elasticsearch returned document with id {}", id);
+        ElasticQueryServiceResponse response = elasticQueryService.getDocumentById(id);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/get-document-by-text")
     public ResponseEntity<List<ElasticQueryServiceResponse>> getDocumentByText(@RequestBody ElasticQueryServiceRequest request) {
-        List<ElasticQueryServiceResponse> responses = new ArrayList<>();
-        ElasticQueryServiceResponse response = ElasticQueryServiceResponse.builder()
-                .text(request.getText())
-                .build();
-        responses.add(response);
-        log.info("Elasticsearch returned {} of documents", responses.size());
+        List<ElasticQueryServiceResponse> responses = elasticQueryService.getDocumentByText(request.getText());
         return ResponseEntity.ok(responses);
     }
 
