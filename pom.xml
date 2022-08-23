@@ -24,9 +24,11 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.22</lombok.version>
-        <spring-boot.version>2.5.0</spring-boot.version>
-        <spring.cloud-version>3.0.2</spring.cloud-version>
-        <spring-cloud-dependencies.version>2020.0.2</spring-cloud-dependencies.version>
+        <spring-boot.version>2.7.0</spring-boot.version>
+        <spring-kafka.version>2.8.6</spring-kafka.version>
+        <spring-retry.version>1.3.3</spring-retry.version>
+        <spring-cloud.version>3.1.3</spring-cloud.version>
+        <spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <!--include build number when on full ci/cd usign jenkins, etc..-->
         <image>gustyflows/${project.artifactId}:${project.version}</image>
@@ -59,6 +61,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.gustyflows</groupId>
                 <artifactId>elastic-query-client</artifactId>
