@@ -2,18 +2,20 @@ server:
   port: 8888
 
 spring:
-  application:
-    name: config-server
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/augustas3000/edmc-spring-cloud-config-server-repo
-          username: ENC(dSqOz4R8brb7LTAZcJ+PT339iswy2wPqPiBMcvEoEHKwYM8Sea9sraNZUdfb7fxJ)
-          password: ENC(WXOS3tvqrefhCghB8vjS+AWcFPdBE0yyGlwudlkNvVt339m7sCM2I8EKogsc6nYkgwgTxYDfdenx3oLSZDPZBwaVG3PcH0xu2mygefzLJp0=)
+          uri: https://github.com/augustas3000/edmc-spring-cloud-config-server-repo.git
+          username: augustas3000
+          password: ENC(8VgEYn2UlqDFoCFfiMOL0DnQfDoyGsR1AnBQjpMX2wxwqFQahP3IBWsjhhfYqo86xUfc7NnB/7Z1pV23iEky/6+bupG/yVvVfXcKTHBEvYA=)
           clone-on-start: true
           default-label: main
       fail-fast: true
   security:
     user:
       name: nunudv
+logging:
+  level:
+    org.eclipse.jgit: DEBUG
+    org.springframework.cloud: DEBUG
