@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.gustyflows</groupId>
             <artifactId>app-config-data</artifactId>
         </dependency>
