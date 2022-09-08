@@ -4,11 +4,6 @@ import com.gustyflows.elastic.query.service.business.ElasticQueryService;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceRequest;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceResponse;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceResponseV2;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +20,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/documents")
+@RequestMapping(value = "/documents", produces = "application/vnd.api.v1+json")
 public class ElasticDocumentController {
 
     private final ElasticQueryService elasticQueryService;
@@ -34,28 +29,19 @@ public class ElasticDocumentController {
         this.elasticQueryService = elasticQueryService;
     }
 
-    @Operation(summary = "get all elastic documents.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful response", content = {
-                    @Content(mediaType = "application/vnd.api.v1+json",
-                            schema = @Schema(implementation = ElasticQueryServiceResponse.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Not found."),
-            @ApiResponse(responseCode = "500", description = "Internal server error.")
-    })
-    @GetMapping("/v1")
+    @GetMapping("/")
     public ResponseEntity<List<ElasticQueryServiceResponse>> getAllDocuments() {
         List<ElasticQueryServiceResponse> responses = elasticQueryService.getAllDocuments();
         return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("/v1/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ElasticQueryServiceResponse> getDocumentById(@PathVariable @NotEmpty String id) {
         ElasticQueryServiceResponse response = elasticQueryService.getDocumentById(id);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/v2/{id}")
+    @GetMapping(value = "/{id}", produces = "application/vnd.api.v2+json")
     public ResponseEntity<ElasticQueryServiceResponseV2> getDocumentByIdV2(@PathVariable @NotEmpty String id) {
         ElasticQueryServiceResponse response = elasticQueryService.getDocumentById(id);
         return ResponseEntity.ok(getV2Model(response));
@@ -65,13 +51,13 @@ public class ElasticDocumentController {
         return ElasticQueryServiceResponseV2.builder()
                 .id(Long.parseLong(response.getId()))
                 .text(response.getText())
+                .text2("version 2 text")
                 .userId(response.getUserId())
-                .createdAt(response.getCreatedAt())
                 .build()
                 .add(response.getLinks());
     }
 
-    @PostMapping("/v1/get-document-by-text")
+    @PostMapping("/get-document-by-text")
     public ResponseEntity<List<ElasticQueryServiceResponse>> getDocumentByText(@RequestBody @Valid ElasticQueryServiceRequest request) {
         List<ElasticQueryServiceResponse> responses = elasticQueryService.getDocumentByText(request.getText());
         return ResponseEntity.ok(responses);

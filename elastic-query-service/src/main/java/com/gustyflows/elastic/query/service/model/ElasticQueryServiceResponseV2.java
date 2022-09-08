@@ -16,5 +16,5 @@ public class ElasticQueryServiceResponseV2 extends RepresentationModel<ElasticQu
     private Long id;
     private Long userId;
     private String text;
-    private LocalDateTime createdAt;
+    private String text2;
 }
