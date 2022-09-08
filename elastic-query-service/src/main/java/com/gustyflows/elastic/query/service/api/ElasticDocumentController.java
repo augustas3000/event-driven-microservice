@@ -4,6 +4,11 @@ import com.gustyflows.elastic.query.service.business.ElasticQueryService;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceRequest;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceResponse;
 import com.gustyflows.elastic.query.service.model.ElasticQueryServiceResponseV2;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +34,15 @@ public class ElasticDocumentController {
         this.elasticQueryService = elasticQueryService;
     }
 
+    @Operation(summary = "get all elastic documents.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful response", content = {
+                    @Content(mediaType = "application/vnd.api.v1+json",
+                            schema = @Schema(implementation = ElasticQueryServiceResponse.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "Not found."),
+            @ApiResponse(responseCode = "500", description = "Internal server error.")
+    })
     @GetMapping("/v1")
     public ResponseEntity<List<ElasticQueryServiceResponse>> getAllDocuments() {
         List<ElasticQueryServiceResponse> responses = elasticQueryService.getAllDocuments();
