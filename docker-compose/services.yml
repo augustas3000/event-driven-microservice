@@ -13,34 +13,31 @@ services:
       - elastic-2
       - elastic-3
     ports:
-      - "5007:5007"
+      - "5006:5006"
     volumes:
       - "./docker-logs:/workspace/kafka-to-elastic-service/logs"
       - "./check-kafka-topics-created.sh:/usr/local/bin/check-kafka-topics-created.sh"
     user: root
     entrypoint: [ "check-kafka-topics-created.sh" ]
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
-      - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=false"
-      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
+      - "SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
     networks:
       - ${GLOBAL_NETWORK:-services}
   twitter-to-kafka-service:
     image: ${GROUP_ID}/twitter-to-kafka-service:${SERVICE_VERSION:-latest}
-    container_name: twitter2kafka
     depends_on:
-      - zookeeper
+      - config-server
       - kafka-broker-1
       - kafka-broker-2
       - kafka-broker-3
-      - schema-registry
-      - config-server
     ports:
       - "5005:5005"
     volumes:
@@ -55,20 +52,19 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
       - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=false"
-      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
     networks:
       - ${GLOBAL_NETWORK:-services}
   config-server:
     image: ${GROUP_ID}/config-server:${SERVICE_VERSION:-latest}
     ports:
-      - "5006:5006"
+      - "5007:5007"
       - "8888:8888"
     volumes:
       - "./docker-logs:/workspace/config-server/logs"
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
-      - "SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}"
     networks:
       - ${GLOBAL_NETWORK:-services}
   elastic-query-service:
@@ -88,13 +84,12 @@ services:
       - elastic-2
       - elastic-3
     environment:
-      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
-      - "SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}"
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xms128m -Xmx256m"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
       - "SERVER_PORT=8183"
       - "SERVER_SERVLET_CONTEXT-PATH=/elastic-query-service"
-      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "SPRING_CLOUD_CONFIG_URI=http://config-server:8888"
       - "ENCRYPT_KEY=${ENCRYPT_KEY}"
     networks:
       - ${GLOBAL_NETWORK:-services}
