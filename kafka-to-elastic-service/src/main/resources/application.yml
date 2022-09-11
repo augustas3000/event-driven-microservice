@@ -6,3 +6,4 @@ spring:
   cloud:
     config:
       username: nunudv
+      password: '{cipher}85735c03de86b9f0c0200f3fbf23ce80f045c24e15a3a9ac319e4277e162bffd'

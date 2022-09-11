@@ -8,13 +8,14 @@ spring:
         git:
           uri: https://github.com/augustas3000/edmc-spring-cloud-config-server-repo.git
           username: augustas3000
-          password: ENC(8VgEYn2UlqDFoCFfiMOL0DnQfDoyGsR1AnBQjpMX2wxwqFQahP3IBWsjhhfYqo86xUfc7NnB/7Z1pV23iEky/6+bupG/yVvVfXcKTHBEvYA=)
+          password: '{cipher}232cc4115840a6f67341c16ac7e1991a6d85f81e7ff9c0faa7711f297bcd625cd4ce8644b9540d189403a3ace11cc931947504c5a7c9d69acdc625dcfd3772f9'
           clone-on-start: true
           default-label: main
       fail-fast: true
   security:
     user:
       name: nunudv
+      password: '{cipher}85735c03de86b9f0c0200f3fbf23ce80f045c24e15a3a9ac319e4277e162bffd'
 logging:
   level:
     org.eclipse.jgit: DEBUG
