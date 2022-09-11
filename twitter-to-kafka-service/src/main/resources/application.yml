@@ -1,9 +1,12 @@
 spring:
   application:
     name: twitter-to-kafka-service
+  profiles:
+    active: twitter_to_kafka
   config:
-    import: "optional:configserver:http://localhost:8888"
+    import: 'configserver:'
   cloud:
     config:
+      name: twitter-to-kafka-service,config-client
       username: nunudv
       password: '{cipher}85735c03de86b9f0c0200f3fbf23ce80f045c24e15a3a9ac319e4277e162bffd'
