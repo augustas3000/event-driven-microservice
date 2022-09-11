@@ -35,7 +35,6 @@
         <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
         <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
         <avro.version>1.10.0</avro.version>
-        <spring-kafka.version>2.8.3</spring-kafka.version>
         <spring-retry.version>1.3.1</spring-retry.version>
         <common-config.version>1.0-SNAPSHOT</common-config.version>
         <kafka-admin.version>1.0-SNAPSHOT</kafka-admin.version>
