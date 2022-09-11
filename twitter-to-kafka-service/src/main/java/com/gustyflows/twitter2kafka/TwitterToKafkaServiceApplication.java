@@ -2,7 +2,6 @@ package com.gustyflows.twitter2kafka;
 
 import com.gustyflows.twitter2kafka.init.StreamInitializer;
 import com.gustyflows.twitter2kafka.runner.StreamRunner;
-import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,7 +12,6 @@ import org.springframework.core.env.Environment;
 
 @Slf4j
 @EnableConfigurationProperties
-@EnableEncryptableProperties
 @SpringBootApplication(
         scanBasePackages = {
                 "com.gustyflows"

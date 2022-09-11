@@ -18,31 +18,56 @@
         <module>common-util</module>
         <module>elastic-query-service</module>
     </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <packaging>pom</packaging>
 
     <properties>
         <java.version>11</java.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.22</lombok.version>
-        <spring-boot.version>2.7.0</spring-boot.version>
-        <spring-kafka.version>2.8.6</spring-kafka.version>
-        <spring-retry.version>1.3.3</spring-retry.version>
-        <spring-cloud.version>3.1.3</spring-cloud.version>
-        <spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <!--include build number when on full ci/cd usign jenkins, etc..-->
-        <image>gustyflows/${project.artifactId}:${project.version}</image>
-        <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
-        <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
-        <avro.version>1.10.0</avro.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+        <twitter4j.version>4.0.7</twitter4j.version>
+
+        <lombok.version>1.18.16</lombok.version>
+
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring-kafka.version>2.6.2</spring-kafka.version>
         <spring-retry.version>1.3.1</spring-retry.version>
+        <spring-cloud.version>3.0.2</spring-cloud.version>
+        <spring-cloud-dependencies.version>2020.0.2</spring-cloud-dependencies.version>
+<!--        <spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>2.0.1</spring-cloud-starter-circuitbreaker-reactor-resilience4j.version>-->
+<!--        <spring-cloud-starter-zipkin.version>2.2.8.RELEASE</spring-cloud-starter-zipkin.version>-->
+
+        <elastic.version>7.9.1</elastic.version>
+
+        <springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
+
+
+<!--        <kafka-streams.version>2.6.0</kafka-streams.version>-->
+<!--        <kafka-clients.version>2.6.0</kafka-clients.version>-->
+<!--        <kafka-streams-avro-serde.version>5.5.1</kafka-streams-avro-serde.version>-->
+        <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
+        <avro.version>1.10.0</avro.version>
+
+        <micrometer-registry-prometheus.version>1.5.2</micrometer-registry-prometheus.version>
+
+        <logstash-logback-encoder.version>6.5</logstash-logback-encoder.version>
+
+        <app-config-data.version>1.0-SNAPSHOT</app-config-data.version>
         <common-config.version>1.0-SNAPSHOT</common-config.version>
         <kafka-admin.version>1.0-SNAPSHOT</kafka-admin.version>
-        <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
         <kafka-producer.version>1.0-SNAPSHOT</kafka-producer.version>
         <kafka-consumer.version>1.0-SNAPSHOT</kafka-consumer.version>
         <kafka-model.version>1.0-SNAPSHOT</kafka-model.version>
-        <elastic.version>7.17.4</elastic.version>
         <elastic-model.version>1.0-SNAPSHOT</elastic-model.version>
         <elastic-config.version>1.0-SNAPSHOT</elastic-config.version>
         <elastic-index-client.version>1.0-SNAPSHOT</elastic-index-client.version>
@@ -115,14 +140,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-dependencies.version}</version>
@@ -133,7 +150,7 @@
             <dependency>
                 <groupId>org.twitter4j</groupId>
                 <artifactId>twitter4j-stream</artifactId>
-                <version>${twitter4j-stream.version}</version>
+                <version>${twitter4j.version}</version>
             </dependency>
 
             <dependency>
@@ -207,6 +224,13 @@
                 <artifactId>kafka-model</artifactId>
                 <version>${kafka-model.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

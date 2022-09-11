@@ -14,7 +14,7 @@ public class ElasticToResponseModelTransformer {
                 .id(twitterIndexModel.getId())
                 .userId(twitterIndexModel.getUserId())
                 .text(twitterIndexModel.getText())
-                .createdAt(twitterIndexModel.getCreatedAt().toLocalDateTime())
+                .createdAt(twitterIndexModel.getCreatedAt())
                 .build();
     }
 
